@@ -9,6 +9,8 @@ import { CarComponent } from './components/car/car.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import {FormsModule} from "@angular/forms"
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { RentalComponent } from './components/rental/rental.component';
     CarComponent,
     CustomerComponent,
     NaviComponent,
-    RentalComponent
+    RentalComponent,
+    CarDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

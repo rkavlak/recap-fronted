@@ -5,9 +5,11 @@
       <app-brand></app-brand>
     </div>
     <div class="col-md-9">
-      <app-car></app-car>
+      <router-outlet>
+          <app-car-detail></app-car-detail>
+      </router-outlet>
     </div>
-    <div>
+    <div class="col-md-3" >
       <app-color></app-color>
     </div>
     <div>
@@ -16,8 +18,9 @@
     <div>
       <app-rental></app-rental>
     </div>
+ 
   </div>
 
-<router-outlet></router-outlet>
+
 </div>
 

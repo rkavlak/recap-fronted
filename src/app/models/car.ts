@@ -1,5 +1,5 @@
 
-export interface Car{
+export interface Car {
 
     carId:number;
     brandId:number;
