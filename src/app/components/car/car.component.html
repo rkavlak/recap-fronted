@@ -9,34 +9,34 @@
   </div>
   <div class="mb-3">
     <label  for="exampleFormControlInput1" class="form-label">Araç ara</label>
-    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Araç özelliği giriniz">
+    <input type="text" [(ngModel)]="carNameFilter" class="form-control" id="carNameFilter" placeholder="Araç özelliği giriniz">
   </div>
-  <div *ngIf="filterText" class="alert alert-primary">
-    {{filterText}} aradınız
+  <div *ngIf="carNameFilter" class="alert alert-primary">
+    {{carNameFilter}} aradınız
   </div>
 
-  <div>  
-    <table *ngIf="dataLoaded == true" class="table">
-    <thead>
-      <tr>
-        <th>Car Id</th>
-        <th>Color Id</th>
-        <th>Brand Id</th>
-        <th>Model Year</th>
-        <th>Daily Price</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-
-    <tr *ngFor="let car of cars">
-      <td>{{ car.carId }}</td>
-      <td>{{ car.brandId }}</td>
-      <td>{{ car.colorId }}</td>
-      <td>{{ car.modelYear }}</td>
-      <td>{{ car.dailyPrice }}</td>
-      <td>{{ car.description }}</td>
-    </tr>
-  </table>
+<div class="row ml-0 mr-0">
+  <div *ngFor="let car of cars | carFilterPipe:carNameFilter"  class="col-md-4 my-4">
+      <div  class="card" style="width: 100%;">
+          <img src="{{carImagePath}}{{getCarImage(car)}}" class="card-img-top" alt="Araba Resmi">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{car.carName}}</h5>
+            <hr>
+            <p> <b>Brand :</b> {{car.brandName}} </p>
+            <hr>
+            <p> <b>Model Year :</b> {{car.modelYear}} </p>
+            <hr>
+            <p> <b>Daily Price :</b> {{car.dailyPrice}} </p>
+            <hr>
+            <p> <b>Color :</b> {{car.colorName}} </p>
+            <p> <b>Description :</b> {{car.description}} </p>
+            <hr>
+            
+            <a routerLink="/cars/car-detail/{{car.carId}}" class="btn btn-outline-none row-mt-2">Detay</a>
+            <a routerLink="" (click)="addToCar(car)"  class="btn btn-outline-none  me-md-2" >Kirala</a>
+          </div>
+        </div>
+  </div>
 </div>
 
 
