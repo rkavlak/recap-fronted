@@ -15,6 +15,8 @@ import{BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { CarFilterPipePipe } from './pipes/car-filter-pipe.pipe';
 
 import{ToastrModule} from "ngx-toastr";
+import { CarFilterComponent } from './components/car-filter/car-filter.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 
@@ -29,6 +31,8 @@ import{ToastrModule} from "ngx-toastr";
     RentalComponent,
     CarDetailComponent,
     CarFilterPipePipe,
+    CarFilterComponent,
+    PaymentComponent,
 
  
   ],

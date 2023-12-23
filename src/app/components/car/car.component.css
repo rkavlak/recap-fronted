@@ -1,9 +1,35 @@
-.btn{
+.btn1{
    background-color: #2056cc;
     outline: none;
     color: #ffffff !important;
     position: relative;
-    margin-right: 100px;
+    margin-left: 100px;
     margin-top: 2;
     
+
+    
 }
+.btn2{
+    background-color: #2056cc;
+     outline: none;
+     color: #ffffff !important;
+    margin-right: 100px;
+    margin-top: 200px;
+     
+ 
+     
+ }
+
+
+.example-card {
+    max-width: 350px;
+    padding: 15px;
+  }
+  
+  img
+  {
+  
+      height: 230px;
+      object-fit: cover;
+  }
+

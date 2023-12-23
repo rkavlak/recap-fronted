@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NaviComponent implements OnInit {
 
+  carNameFilter=""
   constructor() { }
 
   ngOnInit(): void {

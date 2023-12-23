@@ -4,10 +4,12 @@ import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/carDetail';
 import { CarImage } from 'src/app/models/carImage';
+import { Rental } from 'src/app/models/rental';
 import { CarDetailService } from 'src/app/services/car-detail.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 
 import { CarService } from 'src/app/services/car.service';
+import { RentalService } from 'src/app/services/rental.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -18,6 +20,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
+  rentals:Rental[];
   carNameFilter=""
   carImage:CarImage[]=[];
   carImagePath="https://localhost:44392/"
@@ -26,7 +29,8 @@ export class CarComponent implements OnInit {
   constructor(private carService: CarService, 
     private carImageService:CarImageService,
     private toastrService:ToastrService,
-    private activatedRoute:ActivatedRoute) {}
+    private activatedRoute:ActivatedRoute,
+    private rentalService:RentalService) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -80,8 +84,12 @@ export class CarComponent implements OnInit {
     }
   
   }
-  addToCar(car:Car){
-    this.toastrService.success("Kiralama sayfasına yönlendiriliyorsunuz", car.description)
+  addToCar(carId:number){
+    this.rentalService.getRentalsByCarId(carId).subscribe((response)=>{
+      this.rentals=response.data;
+      this.toastrService.success("Kiralama sayfasına yönlendiriliyorsunuz", )
+    })
+   
   }
 
 
